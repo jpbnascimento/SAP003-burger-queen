@@ -10,7 +10,6 @@ const Header = () => {
 
   function incluirPedidos(event) {
     const pedido1 = event.target.innerHTML
-    console.log(pedido1)
 
     setPedidos([...pedido, pedido1])
   } 
@@ -34,7 +33,6 @@ const Header = () => {
        ...doc.data()
       }))
       setItems(newItems)
-      // console.log(newItems)
     })
     
   },[])  
@@ -42,7 +40,7 @@ const Header = () => {
   return (
     <>
     <div className="header">
-      {items.map((item)=> (
+      {items.map((item, index)=> (
         <div className="itens" onClick={incluirPedidos}>
           <p >{item.nome} {item.valor}</p>
         </div> 
