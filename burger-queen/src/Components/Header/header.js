@@ -3,18 +3,18 @@ import firebaseApp from "../../Firebase";
 import "./header.scss";
 
 const Header = () => {
-  const [pedido, setPedidos] = useState([]);
+  const [pedido, setPedidos] = useState([]); // 2 - mudar para dicionario
   const [tipoMenu, setTipoMenu] = useState([]);
   const [menuAtivo, setMenuAtivo] = useState("lanche");
 
 
   function incluirPedidos(event) {
-    const pedido1 = event.target.innerHTML;
+    const pedido1 = event.target.innerHTML; // 1 - passar op parametro ex: <p id={index} onClick={()=>{setMenuAtivo(item)}}>
 
-    setPedidos([...pedido, pedido1]);
+    setPedidos([...pedido, pedido1]);  // 2 - mudar para dicionario
   }
 
-  function excluirPedido(event) {
+  function excluirPedido(event) { // 3 - Decrementar o contador do dicionario TAMBEM usar parametro
     const excluido = pedido[event.target.parentNode.id];
     const qualquer = pedido.filter(item => {
       return item != excluido;
@@ -22,6 +22,8 @@ const Header = () => {
 
     setPedidos(qualquer);
   }
+
+// 4 - Salvar dicionario de pedidos com mesa e nome do usuarione E  status
 
   const [items, setItems] = useState([]);
 
@@ -45,9 +47,9 @@ const Header = () => {
 
   return (
     <>
-      <div>
+      <div className="tippMenu">
         {tipoMenu.map((item, index) => (
-          <p id={index} onClick={()=>{setMenuAtivo(item)}}>
+          <p  id={index} onClick={()=>{setMenuAtivo(item)}}>
             {item}
           </p>
         ))}
@@ -57,21 +59,27 @@ const Header = () => {
           (item.menu === menuAtivo && 
           <div className="itens" onClick={incluirPedidos}>
             <p>
-              {item.nome} {item.valor}
+              {item.nome} 
+            </p>
+            <p>
+             R$ {item.valor}
             </p>
           </div>
           )
         ))}
       </div>
-      <strong>Pedido:</strong>
-      <div>
-        {pedido.map((item, index) => (
-          <p id={index}>
-            {item}
-            <button onClick={excluirPedido}>X</button>
-          </p>
-        ))}
+      <div className="pedido">
+        <strong>Pedido:</strong>
+        <div>
+          {pedido.map((item, index) => (
+            <p id={index}>
+              {item}
+              <button onClick={excluirPedido}>X</button>
+            </p>
+          ))}
+        </div>
       </div>
+      
     </>
   );
 };

@@ -2,4 +2,29 @@
     .itens {
         // background-color: red;
     }
+    
+}
+
+.tippMenu {
+    background-color: red;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+
+    p {
+       background-color: pink; 
+       border-radius: 5px;
+       padding: 10px;
+    }
+}
+
+.pedido {
+    display: flex;
+    justify-content: last baseline;
+}
+
+.itens {
+    display: flex;
+    justify-content: space-around;
 }
