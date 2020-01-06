@@ -19,12 +19,16 @@
     }
 }
 
-.pedido {
-    display: flex;
-    justify-content: last baseline;
-}
+// .pedido {
+//     display: flex;
+//     justify-content: last baseline;
+// }
 
 .itens {
     display: flex;
     justify-content: space-around;
+}
+
+.logo {
+    max-width: 10%;
 }
