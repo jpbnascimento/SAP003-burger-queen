@@ -1,34 +1,105 @@
-.header {
-    .itens {
-        // background-color: red;
+.garcom {
+    display: flex;
+    flex-direction: column;
+    background-color: #FFD4E4;
+
+    .logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+
+        img {
+            max-width: 8%;
+            padding: 2% 0%;
+        }
+    }
+
+    .containerRealizarPedido {
+        display: flex;
+        justify-content: space-around;
+
+        section {
+            width: 50%;
+            .tipoMenu {
+                display: flex;
+                justify-content: space-around;
+    
+                button {
+                    background: #EE4036;
+                    border-radius: 5%;
+                    padding: 1rem ;
+                    border: none;
+                    width: 20%;
+                    font-size: 0.9rem;
+                    color: white;
+                    font-weight: bold;
+                }
+    
+                button:hover {
+                    background-color: yellow;
+                    
+                }
+            }
+    
+            .cardapio {
+                box-shadow: 0px 3px 6px #0000002E;
+                padding: 1rem;
+                margin-top: 1rem;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+    
+                .itens {
+                    display: flex;
+                    justify-content: center;
+                    width: 20rem;
+                    
+                    .itensCardapio {
+                        width:15rem;
+                        margin-top: 0.3rem;
+                        background-color: #F9E1FF;
+                        border: none;
+                        font-size: 14px;
+                        border-radius: 1rem;
+                        display: flex;
+                        justify-content: center;
+                        // flex-direction: column;
+                        align-items: center;
+
+                    }
+                }
+            }
+
+        }
+        
+    }
+
+    .detalhePedido {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .enviar {
+            background: #EE4036;
+            border: none;
+            border-radius: 3px;
+            padding: 1rem;
+            width: 15rem;
+            font-size: 15px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .strong {
+            
+        }
+
+        .total {
+            display: flex;
+            flex-direction: column;
+        }
     }
     
 }
 
-.tippMenu {
-    background-color: red;
-    display: flex;
-    width: 100%;
-    justify-content: space-around;
-    align-items: center;
-
-    p {
-       background-color: pink; 
-       border-radius: 5px;
-       padding: 10px;
-    }
-}
-
-// .pedido {
-//     display: flex;
-//     justify-content: last baseline;
-// }
-
-.itens {
-    display: flex;
-    justify-content: space-around;
-}
-
-.logo {
-    max-width: 10%;
-}
