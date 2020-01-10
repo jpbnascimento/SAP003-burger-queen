@@ -17,23 +17,22 @@ const Header = () => {
 console.log(pedido);
 
   function incluirPedidos(item) {
-    if(item.opcoes){
-      if(pedido.some(el => el.nome === item.nome && el.opcaoEscolhida === opcao &&  el.adicionalEscolhido === adicional) ){
-        console.log("oi")
+    item.opcaoEscolhida = opcao
+    item.adicionalEscolhido = adicional
+    var i;
+    for (i = 0; i < pedido.length; i++){
+      if (get_name(pedido[i]) === get_name(item))
+      {
+        pedido[i].contador++ 
+        setPedidos([...pedido])
+        return
       }
     }
 
-
-    item.opcaoEscolhida = opcao
-    item.adicionalEscolhido = adicional
-    if(pedido.some(el => el.nome === item.nome)){
-      item.contador++
-      setPedidos([...pedido]);
-    } else {
-      item.contador = 1
-      console.log(item)
-      setPedidos([...pedido, item]);
-    }
+    item.contador = 1
+    console.log(item)
+    setPedidos([...pedido, {...item}]);
+    
   }
 
   function decremento(item) {
@@ -66,6 +65,13 @@ console.log(pedido);
     setPedidos(qualquer);
   }
 
+  function get_name(item) {
+    let nome = item.nome;
+    if(item.adicional){
+      nome += item.adicionalEscolhido + item.opcaoEscolhida
+    }
+    return nome;
+  }
 
   const [items, setItems] = useState([]);
 
@@ -133,7 +139,7 @@ console.log(pedido);
                       {item.nome}
                     </p> 
                     <p>
-                      {item.opcoes?item.opcoes.map((i, index) => <label><input value={i} onChange={e => setOpcao(i)} name="opcao" type="radio"/>{i}</label>): "" }
+                      {item.opcoes?item.opcoes.map((i) => <label><input value={i} onChange={e => setOpcao(i)} name="opcao" type="radio"/>{i}</label>): "" }
                     </p>
                     <p>
                       {item.adicional?item.adicional.map((i) => <label><input value={i} onChange={e => setAdicional(i) } name="adicional" type="radio"/>{i}</label>): "" }
@@ -172,15 +178,7 @@ console.log(pedido);
             <div>
               {pedido.map((item, index) => (
                 <p id={index}>
-                  {item.nome} 
-                  {
-                    item.adicional ? (
-                      <>
-                        <span>{item.adicionalEscolhido}</span>
-                        <span >{item.opcaoEscolhida}</span>
-                      </>
-                    ): false
-                  }
+                  {get_name(item)} 
                   <button onClick={excluirPedido}>X</button>
                   <button onClick={() => incremento(item)}> + </button>
                   <span> {item.contador} </span>
