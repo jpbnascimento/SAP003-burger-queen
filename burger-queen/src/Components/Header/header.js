@@ -10,14 +10,12 @@ const Header = () => {
   const [cliente, setCliente] = useState("");
   const [mesa, setMesa] = useState('');
   const [total, setTotal] = useState("");
-  const [opcao, setOpcao] = useState("");
-  const [adicional, setAdicional] = useState("nenhum");
+  const [adicional, setAdicional] = useState(false);
 
 
 console.log(pedido);
 
   function incluirPedidos(item) {
-    item.opcaoEscolhida = opcao
     item.adicionalEscolhido = adicional
     var i;
     for (i = 0; i < pedido.length; i++){
@@ -67,11 +65,20 @@ console.log(pedido);
 
   function get_name(item) {
     let nome = item.nome;
-    if(item.adicional){
-      nome += item.adicionalEscolhido + item.opcaoEscolhida
+    if(item.adicionalEscolhido){
+      nome += item.adicionalEscolhido
     }
     return nome;
   }
+
+  function get_preco(item){
+    let novoPreco = item.valor;
+    if(item.adicionalEscolhido){
+      novoPreco += 0.33;
+    }
+    return novoPreco * item.contador;
+  }
+
 
   const [items, setItems] = useState([]);
 
@@ -92,7 +99,7 @@ console.log(pedido);
         });
     }, []);
 
-    const totalAPagar = pedido.reduce((acc, item)=> acc + (item.contador * item.valor), 0)
+    const totalAPagar = pedido.reduce((acc, item)=> acc + get_preco(item), 0)
 
     function enviarPedido(e){
       e.preventDefault()
@@ -138,9 +145,6 @@ console.log(pedido);
                     <p>
                       {item.nome}
                     </p> 
-                    <p>
-                      {item.opcoes?item.opcoes.map((i) => <label><input value={i} onChange={e => setOpcao(i)} name="opcao" type="radio"/>{i}</label>): "" }
-                    </p>
                     <p>
                       {item.adicional?item.adicional.map((i) => <label><input value={i} onChange={e => setAdicional(i) } name="adicional" type="radio"/>{i}</label>): "" }
                     </p>
