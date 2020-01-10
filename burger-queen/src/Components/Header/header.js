@@ -17,6 +17,7 @@ console.log(pedido);
 
   function incluirPedidos(item) {
     item.adicionalEscolhido = adicional
+    setAdicional(false)
     var i;
     for (i = 0; i < pedido.length; i++){
       if (get_name(pedido[i]) === get_name(item))
@@ -74,7 +75,7 @@ console.log(pedido);
   function get_preco(item){
     let novoPreco = item.valor;
     if(item.adicionalEscolhido){
-      novoPreco += 0.33;
+      novoPreco += 1;
     }
     return novoPreco * item.contador;
   }
