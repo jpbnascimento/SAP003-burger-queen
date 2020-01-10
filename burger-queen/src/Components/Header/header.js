@@ -71,13 +71,16 @@ console.log(pedido);
     }
     return nome;
   }
+    function get_preco_individual(item){
+      let novoPreco = item.valor;
+      if(item.adicionalEscolhido){
+        novoPreco += 1;
+      }
+      return novoPreco;
+    }
 
   function get_preco(item){
-    let novoPreco = item.valor;
-    if(item.adicionalEscolhido){
-      novoPreco += 1;
-    }
-    return novoPreco * item.contador;
+    return get_preco_individual(item) * item.contador;
   }
 
 
@@ -189,7 +192,7 @@ console.log(pedido);
                   <span> {item.contador} </span>
                   <button onClick={() => decremento(item)}> - </button>
                   <p>
-                    R$ {item.valor},00
+                    R$ {get_preco_individual(item)},00
                   </p>
                 </p>
               ))}
