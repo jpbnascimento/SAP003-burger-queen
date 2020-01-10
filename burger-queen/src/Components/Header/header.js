@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import firebaseApp from "../../Firebase";
 import "./header.scss";
 import logo from "./img/logo-2.svg"
+import lixo from "./img/excluir.png"
 
 const Header = () => {
   const [pedido, setPedidos] = useState([]);
@@ -187,7 +188,7 @@ console.log(pedido);
               {pedido.map((item, index) => (
                 <p id={index}>
                   {get_name(item)} 
-                  <button onClick={excluirPedido}>X</button>
+                  <img src={lixo} onClick={excluirPedido}></img>
                   <button onClick={() => incremento(item)}> + </button>
                   <span> {item.contador} </span>
                   <button onClick={() => decremento(item)}> - </button>
