@@ -1,0 +1,22 @@
+.home {
+    background-color: pink;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 100vh; 
+
+    button {
+        padding: 3rem 8rem;
+        font-size: 2rem;
+        border-radius: 15px;
+        color: purple;
+        font-weight: bold;
+        border: none;
+        box-shadow: 0px 3px 6px #0000002E;
+    }
+    
+    button:hover {
+        opacity: 80%;
+    }
+}
+

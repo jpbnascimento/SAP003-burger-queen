@@ -1,15 +1,19 @@
-import React, { Component } from 'react';
-
-import Header from '../../Components/Header/header';
+import { Link } from 'react-router-dom';
+import './home.scss';
+import React from "react";
 
 const Home = () => {
 
     return(
-        <div id="Home">
-            <Header />
-        </div>
+        <main className="home">
+            <Link to= "/salao">
+                <button>Salão</button>
+            </Link>
+            <Link to="/cozinha">
+                <button>Cozinha</button>
+            </Link>
+        </main>
     )
-
 }
 
 
