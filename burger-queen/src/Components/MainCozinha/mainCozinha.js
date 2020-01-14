@@ -6,7 +6,8 @@ const MainCozinha = () => {
 
   const [items, setItems] = useState([]);
 
-  useEffect(() => {
+  function carregarDados(){
+    console.log("Oie")
     firebaseApp
       .firestore()
       .collection("cliente")
@@ -23,9 +24,12 @@ const MainCozinha = () => {
         console.log(newItems)
 
       });
+  };
+
+  useEffect(() => {
+    carregarDados();
+
   }, []);
-
-
 
   function pedidoPronto(item){
       const newDate = new Date();
@@ -42,7 +46,7 @@ const MainCozinha = () => {
       };
 
       firebaseApp.firestore().collection("cliente").doc(item.id).update(pedidoEnviado)
-
+      carregarDados();
     }
 
   return (
@@ -67,7 +71,7 @@ const MainCozinha = () => {
           </div>
           <p>Valor Total do pedido: R$ {item.total} ,00 </p>
           <span className="botaoEnviar">
-            <button onClick={ () => pedidoPronto(item) }>Pronto</button>
+            { !item.status ? <button onClick={ () => pedidoPronto(item) }>Pronto</button> : <p>Otimo</p>}
           </span>  
         </div>
         ))}

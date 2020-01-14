@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import firebaseApp from "../../Firebase";
 import "./mainSalao.scss";
+import { Link } from "react-router-dom";
 
 import lixo from "./img/excluir.png"
 
@@ -131,6 +132,10 @@ console.log(pedido);
 
   return (
       <div className="containerRealizarPedido">
+        <Link to="/pedidos-prontos">
+          <button>Pedidos Prontos</button>
+        </Link>
+
         <section>
           <div className="tipoMenu">
             {tipoMenu.map((item, index) => (
