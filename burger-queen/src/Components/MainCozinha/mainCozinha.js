@@ -53,6 +53,7 @@ const MainCozinha = () => {
     <main>
       <div className="containerPedidos">
         {items.map((item, index) => (
+           ( !item.status ? 
           <div className="pedidoEmPreparo">
           <span className="nomeCliente"> Cliente: {item.cliente} </span>
           <span> Mesa: {item.mesa} </span>
@@ -71,10 +72,10 @@ const MainCozinha = () => {
           </div>
           <p>Valor Total do pedido: R$ {item.total} ,00 </p>
           <span className="botaoEnviar">
-            { !item.status ? <button onClick={ () => pedidoPronto(item) }>Pronto</button> : <p>Otimo</p>}
-          </span>  
-        </div>
-        ))}
+            <button onClick={ () => pedidoPronto(item) }>Pronto</button>
+            </span>  
+        </div> : null ) 
+        ))},
       </div>
     </main>
   );

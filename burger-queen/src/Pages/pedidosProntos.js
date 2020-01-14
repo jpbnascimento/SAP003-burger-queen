@@ -71,7 +71,7 @@ const PedidosProntos = () => {
           </div>
           <p>Valor Total do pedido: R$ {item.total} ,00 </p>
           <span className="botaoEnviar">
-            { item.status == "Pronto" ? <button onClick={ () => pedidoEntregue(item) }>Entregar</button> : <p>na mesa</p>}
+            <button onClick={ () => pedidoEntregue(item) }>Entregar</button>
           </span>  
         </div> : null ) 
         ))},
