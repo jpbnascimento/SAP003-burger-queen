@@ -130,7 +130,7 @@ console.log(pedido);
     
 
   return (
-      <main className="containerRealizarPedido">
+      <div className="containerRealizarPedido">
         <section>
           <div className="tipoMenu">
             {tipoMenu.map((item, index) => (
@@ -149,8 +149,9 @@ console.log(pedido);
                       {item.nome}
                     </p> 
                     <div>
-                      <p>
+                      <p className="">
                         {item.adicional?item.adicional.map((i) => <label><input value={i} onChange={e => setAdicional(i) } name="adicional" type="radio"/>{i}</label>): "" }
+                      
                       </p>
                       <p>
                         R$ {item.valor},00
@@ -203,7 +204,7 @@ console.log(pedido);
               <button className="enviar" onClick={ enviarPedido } >Enviar Pedido</button>
             </div>
         </section> 
-      </main>
+      </div>
   );
 };
 

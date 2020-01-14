@@ -1,7 +1,7 @@
     .containerRealizarPedido {
         display: flex;
         justify-content: space-around;
-        background-color: #FFD4E4;
+        // background-color: #FFD4E4;
 
         section {
             width: 50%;
@@ -10,19 +10,20 @@
                 justify-content: space-around;
     
                 button {
-                    background: #EE4036;
-                    border-radius: 5%;
-                    padding: 1rem ;
-                    border: none;
-                    width: 20%;
-                    font-size: 0.9rem;
-                    color: white;
+                    padding: 0.9rem 0.7rem;
+                    font-size: 1rem;
+                    border-radius: 10px;
+                    color: purple;
                     font-weight: bold;
+                    border: none;
+                    box-shadow: 0px 3px 6px #0000002E;
+                    height: 4rem;
+                    width: 10rem;
+                    outline: 0;
                 }
     
                 button:hover {
-                    background-color: yellow;
-                    
+                    opacity: 80%;
                 }
             }
     
@@ -33,22 +34,23 @@
                 display: flex;
                 flex-wrap: wrap;
                 justify-content: center;
-    
+                
                 .itens {
                     display: flex;
                     justify-content: center;
                     width: 20rem;
                     
                     .itensCardapio {
+                        background-color: white;
                         width:15rem;
                         margin-top: 0.3rem;
-                        background-color: #F9E1FF;
+                        // background-color: #F9E1FF;
                         border: none;
                         font-size: 14px;
                         border-radius: 1rem;
                         display: flex;
                         justify-content: center;
-                        // flex-direction: column;
+                        flex-direction: column;
                         align-items: center;
 
                     }

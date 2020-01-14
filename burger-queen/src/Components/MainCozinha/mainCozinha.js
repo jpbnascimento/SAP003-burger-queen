@@ -5,12 +5,12 @@ import "./mainCozinha.scss";
 const MainCozinha = () => {
 
   const [items, setItems] = useState([]);
-  const [tipoMenu, setTipoMenu] = useState([]);
 
   useEffect(() => {
     firebaseApp
       .firestore()
       .collection("cliente")
+      .orderBy("tempo", "asc")
       .get()
       .then(snap => {
         const newItems = snap.docs.map(doc => ({
@@ -26,12 +26,15 @@ const MainCozinha = () => {
   }, []);
 
 
+
   function pedidoPronto(item){
       const newDate = new Date();
       const tempoDePreparo = parseInt((newDate - item.tempo.toDate())  / 60000);
-      console.log(tempoDePreparo)
-      console.log(item.tempo.toDate())
-      console.log(item)
+      
+      // const horas = Math.floor(tempoDePreparo / 60);
+      // const minutos = tempoDePreparo % 60;
+      // console.log(horas, minutos);
+
 
       const pedidoEnviado = {
         tempoDePreparo,
@@ -39,26 +42,34 @@ const MainCozinha = () => {
       };
 
       firebaseApp.firestore().collection("cliente").doc(item.id).update(pedidoEnviado)
+
     }
 
   return (
     <main>
-      <div>
+      <div className="containerPedidos">
         {items.map((item, index) => (
-          <>
-            {item.tempo.toDate().toLocaleString('pt-br').substring(10, 16)}
-            {item.cliente}
-            {item.mesa}
+          <div className="pedidoEmPreparo">
+          <span className="nomeCliente"> Cliente: {item.cliente} </span>
+          <span> Mesa: {item.mesa} </span>
+          <span> Pedido às {item.tempo.toDate().toLocaleString('pt-br').substring(10, 16)} h</span>
+          <div className="produtoUnitario">
             {item.pedido.map(el => (
-              <div>
+              <div className="detalhePedido">
+                <span>
+                  {el.contador} un 
+                </span>
                 <p>{el.nome}</p>
-                {el.adicionalEscolhido && <p>{el.adicionalEscolhido}</p>}
-                {el.contador}
+                <span>
+                </span> {el.adicionalEscolhido && <p> Adicional de : {el.adicionalEscolhido}</p>}
               </div>
             ))}
-            R$ {item.total} ,00
+          </div>
+          <p>Valor Total do pedido: R$ {item.total} ,00 </p>
+          <span className="botaoEnviar">
             <button onClick={ () => pedidoPronto(item) }>Pronto</button>
-        </>
+          </span>  
+        </div>
         ))}
       </div>
     </main>
