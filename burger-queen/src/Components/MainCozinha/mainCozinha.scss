@@ -4,10 +4,34 @@ main {
     align-items: center;
     flex-direction: column;
 
+    .entregue {
+        color: #9ACD32;
+        font-weight: bold;
+    }
+
+    h1 {
+        color:#8B3E2F;
+    }
+
+    .salaoVoltar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+
+        img {
+            box-shadow: 0px 3px 6px #0000002E;
+            padding: 2rem;
+            border-radius: 50px;
+            margin-top: -9rem;
+            background-color: white;
+            margin-left: 3rem;
+        }
+    }
+
     .containerPedidos{
         display: flex;
         flex-wrap: wrap;
-        // width: 50rem;
         justify-content: center
         ;
         .pedidoEmPreparo {
@@ -37,7 +61,7 @@ main {
             .produtoUnitario {
                 display: flex;
                 align-items: center;
-                justify-content: center;
+                justify-content: start;
                 flex-direction: column;
                 height: 8rem;
                 overflow: scroll;
@@ -62,9 +86,6 @@ main {
             }
 
     }
-
-    .nomeCliente {
-
     }
-    }
+
 }

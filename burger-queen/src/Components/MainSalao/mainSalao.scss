@@ -1,13 +1,42 @@
+    .mainSalao{ 
+        background-color: #FFD4E4;
+
+        .pedidosProntos {
+            display: flex;
+            justify-content: right;
+
+            span {
+                box-shadow: 0px 3px 6px #0000002E;
+                padding: 2rem;
+                border-radius: 50px;
+                margin-top: -9rem;
+                background-color: white;
+                
+            }
+            
+        }
+
+        .adicionar {
+            padding: 0.5rem ;
+            font-size: 0.6rem;
+            border-radius: 10px;
+            color: purple;
+            font-weight: bold;
+            border: none;
+            box-shadow: 0px 3px 6px #0000002E;
+        }
+
     .containerRealizarPedido {
         display: flex;
         justify-content: space-around;
-        // background-color: #FFD4E4;
-
-        section {
-            width: 50%;
+        
+        
+        .CardapioRestaurante {
+            width: 60%;
             .tipoMenu {
                 display: flex;
                 justify-content: space-around;
+                margin-top: 1rem;
     
                 button {
                     padding: 0.9rem 0.7rem;
@@ -38,11 +67,11 @@
                 .itens {
                     display: flex;
                     justify-content: center;
-                    width: 20rem;
+                    margin: 0.5rem;
                     
                     .itensCardapio {
                         background-color: white;
-                        width:15rem;
+                        width:11rem;
                         margin-top: 0.3rem;
                         // background-color: #F9E1FF;
                         border: none;
@@ -52,17 +81,69 @@
                         justify-content: center;
                         flex-direction: column;
                         align-items: center;
+                        padding: 1rem;
+                        height: 12rem;
 
+                        .nome {
+                            font-weight: bold;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                        }
+
+                        .adicional {
+                            display: flex;
+                            flex-direction: column;
+                            width: 100%;
+                            align-items: center;
+                            justify-content: center;
+
+                            span {
+                                display: flex;
+                                align-items: center;
+                            }
+                        }
+
+                        .adicionalUnitario {
+                            width: 100%;
+                            display: flex;
+                            justify-content: space-around;
+                            align-items: center;
+                            font-size: 10px;
+                        }
                     }
                 }
             }
 
         }
         
+        
         .detalhePedido {
             display: flex;
             flex-direction: column;
             align-items: center;
+            margin-top: 5rem;
+
+
+            .detalhe {
+                margin: 0rem 0rem 1rem 0rem;
+            }
+
+            .DadosMesa {
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+                
+                input {
+                    width: 100%;
+                    display: flex;
+                    margin-left: 2px;
+                    text-align: center;
+                    padding: 10px 15px;
+                    font-size: 1rem;
+                    
+                }
+            }
     
             .enviar {
                 background: #EE4036;
@@ -73,17 +154,31 @@
                 font-size: 15px;
                 color: white;
                 font-weight: bold;
-            }
-    
-            .strong {
-                
+                margin-top: 1rem;
             }
     
             .total {
                 display: flex;
                 flex-direction: column;
+                align-items: center;
             }
         }
     }
+    .receberPedido {
+        background-color: white;
+        margin-top: 1rem;
+        padding-left: 1rem;
+        margin-bottom: 1rem;
 
+        div span {
+            margin: 0.5rem;
+        }
+
+        p {
+            border-bottom: 1px solid #D5D5D5;
+        }
+
+       
+    }
+    }
 

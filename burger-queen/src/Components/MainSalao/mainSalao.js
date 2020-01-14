@@ -105,7 +105,8 @@ console.log(pedido);
         });
     }, []);
 
-    const totalAPagar = pedido.reduce((acc, item)=> acc + get_preco(item), 0)
+    const totalAPagar = pedido.reduce((acc, item)=> acc + get_preco(item), 0);
+    console.log(totalAPagar)
 
     function enviarPedido(e){
       e.preventDefault()
@@ -131,12 +132,12 @@ console.log(pedido);
     
 
   return (
-      <div className="containerRealizarPedido">
-        <Link to="/pedidos-prontos">
-          <button>Pedidos Prontos</button>
+      <div className="mainSalao">
+        <Link className="botaoPedidosProntos"  to="/pedidos-prontos">
+          <span>Pedidos Prontos</span>
         </Link>
-
-        <section>
+        <div className="containerRealizarPedido">
+        <section className="CardapioRestaurante">
           <div className="tipoMenu">
             {tipoMenu.map((item, index) => (
               <button className="tipo"  id={index} onClick={()=>{setMenuAtivo(item)}}>
@@ -150,25 +151,26 @@ console.log(pedido);
                 item.adicional ? (
                   <div className="itens" >
                   <div className="itensCardapio">
-                    <p>
+                    <p className="nome">
                       {item.nome}
                     </p> 
-                    <div>
-                      <p className="">
+                    <div className="adicional">
+                      <p className="adicionalUnitario">
+                      <span> Adicional: </span>
                         {item.adicional?item.adicional.map((i) => <label><input value={i} onChange={e => setAdicional(i) } name="adicional" type="radio"/>{i}</label>): "" }
                       
                       </p>
                       <p>
                         R$ {item.valor},00
                       </p>
-                      <button onClick={() => incluirPedidos(item)}>Adicionar</button>
+                      <button className="adicionar" onClick={() => incluirPedidos(item)}>Adicionar</button>
                     </div>
                   </div>
                 </div>
                 ) : (
                   <div className="itens" onClick={() => incluirPedidos(item)}>
                   <div className="itensCardapio">
-                    <p>
+                    <p className="nome">
                       {item.nome}
                     </p> 
                     <p>
@@ -183,32 +185,39 @@ console.log(pedido);
           </div>
         </section>
         <section className="detalhePedido">
-          <strong>Detalhe do pedido</strong>
-            <div>
-              <label >Cliente: </label>
-              <input state="cliente" type="text" onChange={ e => setCliente(e.currentTarget.value)} value={cliente}></input>
-              <label >Mesa: </label>
-              <input state="mesa" type="number" onChange={ e => setMesa(e.currentTarget.value)} value={mesa}></input>
+          <strong className="detalhe">Detalhe do pedido:</strong>
+            <div className="DadosMesa">
+             
+               
+                <input placeholder="Cliente" state="cliente" type="text" onChange={ e => setCliente(e.currentTarget.value)} value={cliente}></input>
+            
+              
+              
+                <input placeholder="N° mesa" state="mesa" type="number" onChange={ e => setMesa(e.currentTarget.value)} value={mesa}></input>
+              
             </div>
-            <div>
+            <div className="receberPedido">
               {pedido.map((item, index) => (
-                <p id={index}>
-                  {get_name(item)} 
-                  <img src={lixo} onClick={excluirPedido}></img>
-                  <button onClick={() => incremento(item)}> + </button>
-                  <span> {item.contador} </span>
-                  <button onClick={() => decremento(item)}> - </button>
+                <div id={index}>
+                  {get_name(item)}
+                  <span>
+                    <img src={lixo} onClick={excluirPedido}></img>
+                    <button onClick={() => incremento(item)}> + </button>
+                    <span> {item.contador} </span>
+                    <button onClick={() => decremento(item)}> - </button>
+                  </span>
                   <p>
-                    R$ {get_preco_individual(item)},00
+                   Valor: R$ {get_preco_individual(item)},00
                   </p>
-                </p>
+                </div>
               ))}
             </div>
             <div className="total">
               <span state="total"><strong>Total a pagar : R$ {totalAPagar} ,00</strong></span>
-              <button className="enviar" onClick={ enviarPedido } >Enviar Pedido</button>
             </div>
+              <button className="enviar" onClick={ enviarPedido } >Enviar Pedido</button>
         </section> 
+        </div>
       </div>
   );
 };

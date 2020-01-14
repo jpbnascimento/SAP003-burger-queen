@@ -1,24 +1,9 @@
 import React from 'react';
-// // import logo from './logo.svg';
-// import './App.scss';
-// import Home from './Pages/Home/home';
-
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <Home />
-//     </div>
-//   );
-// }
-
-// export default App;
-
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Salao from './Pages/Salao/salao';
 import Cozinha from './Pages/cozinha';
 import Home from './Pages/Home/Home';
-import PedidosProntos from './Pages/pedidosProntos'
+import PedidosProntos from './Pages/PedidosProntos/pedidosProntos';
 
 const Routes = () => { 
 

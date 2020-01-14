@@ -1,0 +1,293 @@
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: #FFD4E4;
+  box-shadow: 0px 3px 6px #0000002E;
+}
+.logo img {
+  max-width: 8%;
+  padding: 2% 0%;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+main .entregue {
+  color: #9ACD32;
+  font-weight: bold;
+}
+main h1 {
+  color: #8B3E2F;
+}
+main .salaoVoltar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+main .salaoVoltar img {
+  box-shadow: 0px 3px 6px #0000002E;
+  padding: 2rem;
+  border-radius: 50px;
+  margin-top: -9rem;
+  background-color: white;
+  margin-left: 3rem;
+}
+main .containerPedidos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+main .containerPedidos .pedidoEmPreparo {
+  width: 15rem;
+  height: 20rem;
+  box-shadow: 0px 3px 6px #0000002E;
+  padding: 1rem;
+  border-radius: 10px;
+  margin: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #FFEC8B;
+}
+main .containerPedidos .pedidoEmPreparo .detalhePedido {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 2px 0px;
+  padding-left: 5px;
+  border-radius: 5px;
+  background-color: #FFFAFA;
+  width: 100%;
+}
+main .containerPedidos .pedidoEmPreparo .produtoUnitario {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  flex-direction: column;
+  height: 8rem;
+  overflow: scroll;
+}
+main .containerPedidos .botaoEnviar {
+  display: flex;
+  justify-content: center;
+}
+main .containerPedidos .botaoEnviar button {
+  padding: 0.9rem 0.7rem;
+  font-size: 1rem;
+  border-radius: 10px;
+  color: purple;
+  font-weight: bold;
+  border: none;
+  box-shadow: 0px 3px 6px #0000002E;
+}
+main .containerPedidos .botaoEnviar button:hover {
+  opacity: 80%;
+}
+
+.mainSalao {
+  background-color: #FFD4E4;
+}
+.mainSalao .pedidosProntos {
+  display: flex;
+  justify-content: right;
+}
+.mainSalao .pedidosProntos span {
+  box-shadow: 0px 3px 6px #0000002E;
+  padding: 2rem;
+  border-radius: 50px;
+  margin-top: -9rem;
+  background-color: white;
+}
+.mainSalao .adicionar {
+  padding: 0.5rem;
+  font-size: 0.6rem;
+  border-radius: 10px;
+  color: purple;
+  font-weight: bold;
+  border: none;
+  box-shadow: 0px 3px 6px #0000002E;
+}
+.mainSalao .containerRealizarPedido {
+  display: flex;
+  justify-content: space-around;
+}
+.mainSalao .containerRealizarPedido .CardapioRestaurante {
+  width: 60%;
+}
+.mainSalao .containerRealizarPedido .CardapioRestaurante .tipoMenu {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1rem;
+}
+.mainSalao .containerRealizarPedido .CardapioRestaurante .tipoMenu button {
+  padding: 0.9rem 0.7rem;
+  font-size: 1rem;
+  border-radius: 10px;
+  color: purple;
+  font-weight: bold;
+  border: none;
+  box-shadow: 0px 3px 6px #0000002E;
+  height: 4rem;
+  width: 10rem;
+  outline: 0;
+}
+.mainSalao .containerRealizarPedido .CardapioRestaurante .tipoMenu button:hover {
+  opacity: 80%;
+}
+.mainSalao .containerRealizarPedido .CardapioRestaurante .cardapio {
+  box-shadow: 0px 3px 6px #0000002E;
+  padding: 1rem;
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.mainSalao .containerRealizarPedido .CardapioRestaurante .cardapio .itens {
+  display: flex;
+  justify-content: center;
+  margin: 0.5rem;
+}
+.mainSalao .containerRealizarPedido .CardapioRestaurante .cardapio .itens .itensCardapio {
+  background-color: white;
+  width: 11rem;
+  margin-top: 0.3rem;
+  border: none;
+  font-size: 14px;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  height: 12rem;
+}
+.mainSalao .containerRealizarPedido .CardapioRestaurante .cardapio .itens .itensCardapio .nome {
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mainSalao .containerRealizarPedido .CardapioRestaurante .cardapio .itens .itensCardapio .adicional {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.mainSalao .containerRealizarPedido .CardapioRestaurante .cardapio .itens .itensCardapio .adicional span {
+  display: flex;
+  align-items: center;
+}
+.mainSalao .containerRealizarPedido .CardapioRestaurante .cardapio .itens .itensCardapio .adicionalUnitario {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 10px;
+}
+.mainSalao .containerRealizarPedido .detalhePedido {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5rem;
+}
+.mainSalao .containerRealizarPedido .detalhePedido .detalhe {
+  margin: 0rem 0rem 1rem 0rem;
+}
+.mainSalao .containerRealizarPedido .detalhePedido .DadosMesa {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.mainSalao .containerRealizarPedido .detalhePedido .DadosMesa input {
+  width: 100%;
+  display: flex;
+  margin-left: 2px;
+  text-align: center;
+  padding: 10px 15px;
+  font-size: 1rem;
+}
+.mainSalao .containerRealizarPedido .detalhePedido .enviar {
+  background: #EE4036;
+  border: none;
+  border-radius: 3px;
+  padding: 1rem;
+  width: 15rem;
+  font-size: 15px;
+  color: white;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+.mainSalao .containerRealizarPedido .detalhePedido .total {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.mainSalao .receberPedido {
+  background-color: white;
+  margin-top: 1rem;
+  padding-left: 1rem;
+  margin-bottom: 1rem;
+}
+.mainSalao .receberPedido div span {
+  margin: 0.5rem;
+}
+.mainSalao .receberPedido p {
+  border-bottom: 1px solid #D5D5D5;
+}
+
+.home {
+  background-color: pink;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 100vh;
+}
+.home .conteudoPrincipal {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  height: 75%;
+  width: 100%;
+}
+.home .conteudoPrincipal img {
+  width: 50%;
+  margin-right: 45px;
+}
+.home button {
+  font-size: 2rem;
+  border-radius: 15px;
+  color: purple;
+  font-weight: bold;
+  border: none;
+  box-shadow: 0px 3px 6px #0000002E;
+  margin: 10px;
+  height: 6rem;
+  width: 15rem;
+}
+.home button:hover {
+  opacity: 80%;
+}
+.home .botoes {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.salaoVoltar {
+  background-color: red;
+}
+
+.salao {
+  background-color: #FFD4E4;
+  height: 100vh;
+}

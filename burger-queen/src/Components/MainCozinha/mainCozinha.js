@@ -34,11 +34,6 @@ const MainCozinha = () => {
   function pedidoPronto(item){
       const newDate = new Date();
       const tempoDePreparo = parseInt((newDate - item.tempo.toDate())  / 60000);
-      
-      // const horas = Math.floor(tempoDePreparo / 60);
-      // const minutos = tempoDePreparo % 60;
-      // console.log(horas, minutos);
-
 
       const pedidoEnviado = {
         tempoDePreparo,
